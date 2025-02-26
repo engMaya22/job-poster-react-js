@@ -32,3 +32,4 @@ export default App;
 //components state , global state 
 //react-icons package
 //not to get link we can use <a> but its better to use <Link> cause this link not refresh page when use it like <a> does
+//when we need to work with active link we use NavLink instead of Link
