@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import MainLayout from "./layouts/MainLayout";
 import Jobs from "./pages/jobs";
 import AddJob from "./pages/AddJob";
+import NotFound from "./pages/NotFound";
 
 
 const router = createBrowserRouter (
@@ -13,6 +14,8 @@ const router = createBrowserRouter (
                                  <Route path="/jobs" element={<Jobs />} />
                                  {/* we define each path and its component page */}
                                  <Route path="/add-job" element={<AddJob />} />
+                                 <Route path="*" element={<NotFound />} />
+
 
 
                             </Route>
