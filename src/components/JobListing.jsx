@@ -4,6 +4,7 @@ import jobs from "../jobs.json";
 import JobCard from "./JobCard";
 
 const JobListing = ()=>{
+   const recentJobs = jobs.slice(0,3);
 
     return ( 
     <section className="bg-blue-50 px-4 py-10">
@@ -13,7 +14,7 @@ const JobListing = ()=>{
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {
-                jobs.map((job , indx)=> <JobCard key={indx} job={job}/>)
+                recentJobs.map((job , indx)=> <JobCard key={indx} job={job}/>)
             }
 
            
