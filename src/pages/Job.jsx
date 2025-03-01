@@ -3,6 +3,8 @@ import { FaMapMarker } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 
 
@@ -11,6 +13,8 @@ const Job = ({deleteJobSubmit})=>{
     // const {id} = useParams();
     const navigate = useNavigate();
     const job = useLoaderData();//this use function  passed with component as loader in routes
+    const MySwal = withReactContent(Swal)
+
     // console.log(job);
     // const [ job , setJob] = useState(null);
     // const [ loading , setLoading] = useState(true);
@@ -34,11 +38,23 @@ const Job = ({deleteJobSubmit})=>{
     // },[]);
 
     const deleteJobClick = (jobId)=>{
-        const confirm = window.confirm('Are you sure to delete this job ?')
-        if(!confirm)return
-        deleteJobSubmit(jobId);
-        toast.success('Job jas been deleted Successfully!');
-        navigate('/jobs');
+        MySwal.fire({
+            title: 'Are you sure to delete this job ?',
+            showDenyButton: true,
+            confirmButtonText: 'Yes',
+            denyButtonText: 'No',
+            customClass: {
+              confirmButton: 'order-2',
+              denyButton: 'order-3',
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+                       deleteJobSubmit(jobId);
+                       navigate('/jobs');
+                MySwal.fire('Deleted!', '', 'success')
+            } 
+          })
+          
 
         
     }

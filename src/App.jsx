@@ -77,4 +77,4 @@ export default App;
 // we send id with params to use it in details page to get details data api
 
 
-//to do confirm delete , auth admin to add job
+// auth admin to add job
