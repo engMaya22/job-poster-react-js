@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom"
+import { ToastContainer } from 'react-toastify';
 import Navbar from "../components/Navbar"
 
 
@@ -8,6 +9,7 @@ const MainLayout = () => {
        <Navbar />
          <Outlet />
        {/* there the actual component content      */}
+       <ToastContainer />
     </>
   )
 }

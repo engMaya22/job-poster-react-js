@@ -15,10 +15,18 @@ const App = () => {
         headers:{
           'Content-Type' : 'application/json'
         },
-        body: JSON.stringify(newJob)
+        body: JSON.stringify(newJob)//like local storage when save data
 
       });
       return;
+
+    }
+    const deleteJob = async(jobId)=>{
+      const res = await fetch(`/api/jobs/${jobId}`,{
+        method : 'DELETE'
+      });
+      return;
+
 
     }
 
@@ -28,7 +36,7 @@ const App = () => {
                               <Route path="/" element={<MainLayout />} >
                                   <Route index element={<Home />} />
                                   <Route path="/jobs" element={<Jobs />} />
-                                  <Route path="/jobs/:id" element={<Job />} loader={jobLoader}  />
+                                  <Route path="/jobs/:id" element={<Job deleteJobSubmit={deleteJob} />} loader={jobLoader}  />
                                   {/* we define each path and its component page */}
                                   <Route path="/add-job" element={<AddJob addJobSubmit={addJob} />} />
                                   <Route path="*" element={<NotFound />} />

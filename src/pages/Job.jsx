@@ -1,13 +1,15 @@
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { FaMapMarker } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 
 
-const Job = ()=>{
+const Job = ({deleteJobSubmit})=>{
     // const {id} = useParams();
+    const navigate = useNavigate();
     const job = useLoaderData();//this use function  passed with component as loader in routes
     
     // const [ job , setJob] = useState(null);
@@ -31,6 +33,15 @@ const Job = ()=>{
        
     // },[]);
 
+    const deleteJobClick = (jobId)=>{
+        const confirm = window.confirm('Are you sure to delete this job ?')
+        if(!confirm)return
+        deleteJobSubmit(jobId);
+        toast.success('Job jas been deleted Successfully!')
+        navigate('/jobs');
+
+        
+    }
     return     <>
                     <section>
                         <div className="container m-auto py-6 px-6">
@@ -109,6 +120,7 @@ const Job = ()=>{
                                     >Edit Job</Link >
                                 <button
                                     className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                                    onClick={()=>deleteJobClick(job.id)}
                                 >
                                     Delete Job
                                 </button>

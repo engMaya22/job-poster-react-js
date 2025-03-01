@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 
@@ -37,6 +38,7 @@ const AddJob = ({addJobSubmit}) => {
     };
     // console.log(newJob);
     addJobSubmit(newJob)//this post api excuted in app component 
+    toast.success('Job jas been added Successfully!')
     return navigate('/jobs');
 
   }
