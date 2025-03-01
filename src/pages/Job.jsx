@@ -11,7 +11,7 @@ const Job = ({deleteJobSubmit})=>{
     // const {id} = useParams();
     const navigate = useNavigate();
     const job = useLoaderData();//this use function  passed with component as loader in routes
-    
+    // console.log(job);
     // const [ job , setJob] = useState(null);
     // const [ loading , setLoading] = useState(true);
     //this is the first way using use effect 
@@ -37,7 +37,7 @@ const Job = ({deleteJobSubmit})=>{
         const confirm = window.confirm('Are you sure to delete this job ?')
         if(!confirm)return
         deleteJobSubmit(jobId);
-        toast.success('Job jas been deleted Successfully!')
+        toast.success('Job jas been deleted Successfully!');
         navigate('/jobs');
 
         
@@ -115,7 +115,7 @@ const Job = ({deleteJobSubmit})=>{
                                 <div className="bg-white p-6 rounded-lg shadow-md mt-6">
                                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
                                 <Link
-                                    to={`/jobs/edit/${job.id}`}
+                                    to={`/edit-job/${job.id}`}
                                     className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                                     >Edit Job</Link >
                                 <button

@@ -5,6 +5,7 @@ import Jobs from "./pages/jobs";
 import AddJob from "./pages/AddJob";
 import NotFound from "./pages/NotFound";
 import Job, { jobLoader } from "./pages/Job";
+import EditJob from "./pages/EditJob";
 
 
 const App = () => {
@@ -29,6 +30,17 @@ const App = () => {
 
 
     }
+    const updateJob = async(job)=>{
+      const res = await fetch(`/api/jobs/${job.id}`,{
+        method:'PUT',
+        headers:{
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify(job)
+      });
+      return;
+
+    }
 
     const router = createBrowserRouter (
     createRoutesFromElements(
@@ -37,6 +49,7 @@ const App = () => {
                                   <Route index element={<Home />} />
                                   <Route path="/jobs" element={<Jobs />} />
                                   <Route path="/jobs/:id" element={<Job deleteJobSubmit={deleteJob} />} loader={jobLoader}  />
+                                  <Route path="/edit-job/:id" element={<EditJob updateJobSubmit={updateJob} />}  loader={jobLoader}/>
                                   {/* we define each path and its component page */}
                                   <Route path="/add-job" element={<AddJob addJobSubmit={addJob} />} />
                                   <Route path="*" element={<NotFound />} />
@@ -62,3 +75,6 @@ export default App;
 
 // for details api , when need to define route and use this route in link where 
 // we send id with params to use it in details page to get details data api
+
+
+//to do confirm delete , auth admin to add job
