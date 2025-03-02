@@ -6,41 +6,11 @@ import AddJob from "./pages/AddJob";
 import NotFound from "./pages/NotFound";
 import Job, { jobLoader } from "./pages/Job";
 import EditJob from "./pages/EditJob";
-
+import JobApi from "./utlis/JobApi";
 
 const App = () => {
   
-    const addJob = async(newJob)=>{
-      const res = await fetch('/api/jobs',{
-        method: 'POST',
-        headers:{
-          'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify(newJob)//like local storage when save data
-
-      });
-      return;
-
-    }
-    const deleteJob = async(jobId)=>{
-      const res = await fetch(`/api/jobs/${jobId}`,{
-        method : 'DELETE'
-      });
-      return;
-
-
-    }
-    const updateJob = async(job)=>{
-      const res = await fetch(`/api/jobs/${job.id}`,{
-        method:'PUT',
-        headers:{
-          'Content-Type' : 'application/json'
-        },
-        body : JSON.stringify(job)
-      });
-      return;
-
-    }
+   const { addJob , updateJob , deleteJob} = JobApi;
 
     const router = createBrowserRouter (
     createRoutesFromElements(
