@@ -84,5 +84,37 @@
         "contactPhone": "555-555-5555"
       }
     }
+  ],
+  "users": [
+    {
+      "id": "b9e3",
+      "email": "saied.suliman@axenso.com",
+      "password": "56789",
+      "username": "meshoko"
+    },
+    {
+      "id": "0253",
+      "email": "super@axenso.com",
+      "password": "56789",
+      "username": "meshoko"
+    },
+    {
+      "id": "48ff",
+      "email": "eng.maya.esmaeel1@gmail.com",
+      "password": "56789",
+      "username": "meshoko"
+    },
+    {
+      "id": "5895",
+      "email": "",
+      "password": "",
+      "username": ""
+    },
+    {
+      "id": "7794",
+      "name": "meshoko",
+      "email": "soso@mail.com",
+      "password": "12345679"
+    }
   ]
 }

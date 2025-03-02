@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from  "../assets/images/logo.png"
-const Navbar = () => {
 
+const Navbar = () => {
    const linkClass = ({isActive})=> isActive ?
                                             ' bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2' 
                                             : 'text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2';
@@ -37,10 +37,22 @@ const Navbar = () => {
                                className={ linkClass}     
                              >Jobs
                             </NavLink >
-                            <NavLink
+                          
+                              <NavLink
                               to="/add-job"
                               className={linkClass }                   
-                             >Add Job</NavLink >
+                              >Add Job</NavLink >
+                          
+                              <NavLink
+                              to="/user-login"
+                              className={linkClass }                   
+                            >Login</NavLink >
+                            <NavLink
+                              to="/user-register"
+                              className={linkClass }                   
+                            >Register</NavLink >
+                          
+                           
                           </div>
                         </div>
                       </div>

@@ -6,11 +6,12 @@ import AddJob from "./pages/AddJob";
 import NotFound from "./pages/NotFound";
 import Job, { jobLoader } from "./pages/Job";
 import EditJob from "./pages/EditJob";
-import { addJob , updateJob , deleteJob} from "./utlis/JobApi";
+import { addJob , updateJob , deleteJob } from "./utlis/JobApi";
+import Login from "./pages/Login";
+import { loginUser , registerUser } from "./utlis/UserApi";
+import Register from "./pages/Register";
 
 const App = () => {
-  
-  //  const { addJob , updateJob , deleteJob} = JobApi;
 
     const router = createBrowserRouter (
     createRoutesFromElements(
@@ -23,14 +24,16 @@ const App = () => {
                                   {/* we define each path and its component page */}
                                   <Route path="/add-job" element={<AddJob addJobSubmit={addJob} />} />
                                   <Route path="*" element={<NotFound />} />
-                                
+                                  <Route path="/user-login" element={<Login loginUserSubmit={loginUser} />} />
+                                  <Route path="/user-register" element={<Register registerUserSubmit={registerUser} />} />
+
 
 
                               </Route>
                             )
     )
 
-  return ( <RouterProvider router={router}/>)  
+  return (  <RouterProvider router={router}/>)  
 }
 
 export default App;
