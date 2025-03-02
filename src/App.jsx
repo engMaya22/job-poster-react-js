@@ -6,11 +6,11 @@ import AddJob from "./pages/AddJob";
 import NotFound from "./pages/NotFound";
 import Job, { jobLoader } from "./pages/Job";
 import EditJob from "./pages/EditJob";
-import JobApi from "./utlis/JobApi";
+import { addJob , updateJob , deleteJob} from "./utlis/JobApi";
 
 const App = () => {
   
-   const { addJob , updateJob , deleteJob} = JobApi;
+  //  const { addJob , updateJob , deleteJob} = JobApi;
 
     const router = createBrowserRouter (
     createRoutesFromElements(
