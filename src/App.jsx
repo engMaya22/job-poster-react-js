@@ -8,8 +8,8 @@ import Job, { jobLoader } from "./pages/Job";
 import EditJob from "./pages/EditJob";
 import { addJob , updateJob , deleteJob } from "./utlis/JobApi";
 import Login from "./pages/Login";
-import { loginUser , registerUser } from "./utlis/UserApi";
 import Register from "./pages/Register";
+import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
 
@@ -24,8 +24,8 @@ const App = () => {
                                   {/* we define each path and its component page */}
                                   <Route path="/add-job" element={<AddJob addJobSubmit={addJob} />} />
                                   <Route path="*" element={<NotFound />} />
-                                  <Route path="/user-login" element={<Login loginUserSubmit={loginUser} />} />
-                                  <Route path="/user-register" element={<Register registerUserSubmit={registerUser} />} />
+                                  <Route path="/user-login" element={<Login  />} />
+                                  <Route path="/user-register" element={<Register  />} />
 
 
 
@@ -33,7 +33,7 @@ const App = () => {
                             )
     )
 
-  return (  <RouterProvider router={router}/>)  
+  return ( <AuthProvider><RouterProvider router={router}/></AuthProvider> )  
 }
 
 export default App;

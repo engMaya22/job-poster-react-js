@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
+import { useAuthContext } from "../context/AuthContext";
 
-const Login = ({ loginUserSubmit }) => {
-  const navigate = useNavigate()
+const Login = () => {
+  const navigate = useNavigate();
+  const {loginUser} = useAuthContext();
 
   const initialValues = {
     email: '',
@@ -16,7 +18,7 @@ const Login = ({ loginUserSubmit }) => {
   })
 
   function handleSubmit(values) {
-    loginUserSubmit(values)
+    loginUser(values)
     navigate('/jobs')
   }
 

@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import logo from  "../assets/images/logo.png"
+import { useAuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
+   const {isAuthinticate , user , logoutUser} = useAuthContext();
+
    const linkClass = ({isActive})=> isActive ?
                                             ' bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2' 
                                             : 'text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2';
@@ -37,20 +40,35 @@ const Navbar = () => {
                                className={ linkClass}     
                              >Jobs
                             </NavLink >
+                            { 
+                              isAuthinticate ?
+                                <>
+                                {/* hello {user.email} */}
+                                 <NavLink
+                                 to="/add-job"
+                                 className={linkClass }                   
+                                 >Add Job</NavLink >
+                                 <NavLink
+                                  onClick={logoutUser}
+                                 className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"                   
+                                 >Logout</NavLink >
+                                </>
+                                              :
+                                  <>
+                                    <NavLink
+                                    to="/user-login"
+                                    className={linkClass }                   
+                                  >Login</NavLink >
+                                  <NavLink
+                                    to="/user-register"
+                                    className={linkClass }                   
+                                  >Register</NavLink >
+                                  </>
+                             }
                           
-                              <NavLink
-                              to="/add-job"
-                              className={linkClass }                   
-                              >Add Job</NavLink >
+                            
                           
-                              <NavLink
-                              to="/user-login"
-                              className={linkClass }                   
-                            >Login</NavLink >
-                            <NavLink
-                              to="/user-register"
-                              className={linkClass }                   
-                            >Register</NavLink >
+                            
                           
                            
                           </div>

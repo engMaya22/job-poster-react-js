@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
+import { useAuthContext } from "../context/AuthContext";
 
-const Register = ({ registerUserSubmit }) => {
+const Register = () => {
     const navigate = useNavigate();
+    const {registerUser} = useAuthContext();
 
     const RegisterSchema = Yup.object().shape({
         name: Yup.string().required("Name is required"),
@@ -16,7 +18,7 @@ const Register = ({ registerUserSubmit }) => {
     });
 
     const submitHandler = (values, { setSubmitting }) => {
-        registerUserSubmit(values);
+        registerUser(values);
         navigate('/jobs');
         setSubmitting(false);
     };
