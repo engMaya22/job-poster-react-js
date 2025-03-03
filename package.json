@@ -20,7 +20,7 @@
     "react-router-dom": "^7.2.0",
     "react-spinners": "^0.15.0",
     "react-toastify": "^11.0.5",
-    "sweetalert2": "^11.17.2",
+    "sweetalert2": "^11.6.13",
     "sweetalert2-react-content": "^5.1.0",
     "tailwindcss": "^4.0.9",
     "yup": "^1.6.1"
@@ -36,6 +36,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
     "json-server": "^1.0.0-beta.3",
+    "netlify-cli": "^16.4.2",
     "vite": "^6.2.0"
   }
 }
